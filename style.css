@@ -45,9 +45,49 @@ h6 { color: var(--systemGray5); }
 small { font-size: 0.666em; }
 blockquote { color: var(--systemGray);  font-size: 1.36em; }
 
+marque { color: var(--label); font-size: 1.36em; background: var(--accent); white-space: pre; display: inline-grid;}
+marque
+{
+	animation-play-state: mq;
+	opacity: 1;
+	transition-duration: 0.4s;
+    position: absolute;
+    animation: mq 50s linear infinite;
+}
+
+@keyframes mq
+{
+    from
+    {
+        transform: translate3d(1000px, 0, 0);
+    }
+    to
+    {
+        transform: translate3d(-1000px, 0, 0);
+    }
+}
+
+@keyframes eases
+{
+    from
+    {
+        transform: rotate3d(1, 1, 1, 0deg);
+    }
+    to
+    {
+        transform: rotate3d(1, 1, 1, 359deg);
+    }
+}
+
+
 a {
     color: var(--link);
     text-decoration: none;
+}
+
+a[h1]
+{
+    font-size: 1.56em;
 }
 
 a:hover {
@@ -91,7 +131,7 @@ textholder
 
 cube3d
 {
-    --max: max(30vw, 30vh);
+    --max: max(20vw, 20vh);
     --width: var(--max);
     --height: var(--max);
     --depth: var(--max);
@@ -160,18 +200,17 @@ cube3d > face:nth-child(6){ background: white;  } */
 
 
 @media (max-width: 520px) {
+    h1[id="title"]
+    {
+        position: absolute;
+        top: 10%;
+        right: 10%;
+    }    
   greed
     {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 10px;
-    }
-    
-    cube3d
-    {
-        position: absolute;
-        transform: translate(-100%, 50%);
-        left: 50%;
-        bottom: 20%;
+        grid-template-rows: 1fr 1fr;
+        padding-top: 60%;
     }
 }
 
@@ -180,9 +219,11 @@ img[none][id="huilo"]
 {
     display: grid;
     position: absolute;
-    width: 500px;
-    height: 500px;
-    transform: transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    left: 100%;
+    top: 10%;
+    transform: translate(-50%, -50%);
     z-index: 2;
     animation: rotates1 60s linear infinite;
     opacity: 0.5;
@@ -195,7 +236,7 @@ img[none][id="let8"]
     width: 400px;
     height: 400px;
     left: 60%;
-    transform: transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     z-index: 2;
     animation: rotates2 150s linear infinite;
 }
